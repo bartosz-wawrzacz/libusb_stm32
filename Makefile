@@ -1,8 +1,8 @@
-CMSIS       ?=../../CMSIS
+CMSIS       ?= CMSIS
 CMSISDEV    ?= $(CMSIS)/Device
-CMSISCORE   ?= $(CMSIS)/CMSIS/Include $(CMSIS)/CMSIS/Core/Include
+CMSISCORE   ?= $(CMSIS)/Include
 FLASH       ?= st-flash
-TOOLSET     ?= arm-none-eabi-
+TOOLSET     ?= /opt/arm-none-eabi-gcc/bin/arm-none-eabi-
 CC           = $(TOOLSET)gcc
 LD           = $(TOOLSET)gcc
 AR           = $(TOOLSET)gcc-ar
@@ -20,8 +20,8 @@ else
 endif
 
 MODULE      ?= libusb.a
-CFLAGS      ?= -mcpu=cortex-m3
-DEFINES     ?= STM32F1 STM32F103x6
+CFLAGS      ?= -mcpu=cortex-m0
+DEFINES     ?= STM32F0 STM32F042x6
 
 ARFLAGS      = -cvq
 LDFLAGS      = --specs=nano.specs -nostartfiles -Wl,--gc-sections
